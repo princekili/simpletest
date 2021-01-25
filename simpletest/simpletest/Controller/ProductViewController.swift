@@ -13,7 +13,15 @@ class ProductViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: -
+    
     var products: [SalePageListItem] = []
+    
+    var filteredProducts: [SalePageListItem] = []
+    
+    var isSoldOut: Bool = false
+    
+    var isComingSoon: Bool = false
     
     // MARK: -
     
@@ -38,14 +46,57 @@ class ProductViewController: UIViewController {
         }
     }
     
-    // MARK: - get Products
-    
     private func fetchProducts() {
         activityIndicator.startAnimating()
 
-        ProductNetworking().getProducts { (products) in
-            self.products = products
-            self.reloadData()
+        ProductNetworking().getProducts { [weak self] (products) in
+            self?.products = products
+            self?.reloadData()
+        }
+    }
+    
+    private func handleFilters() {
+        filteredProducts = products.filter { $0.isSoldOut == isSoldOut && $0.isComingSoon == isComingSoon }
+        reloadData()
+    }
+    
+    private func priceDescending() {
+        // Price: H -> L
+        products.sort {
+            guard let princeZero = $0.price,
+                  let princeOne = $1.price
+            else { return false }
+            return princeZero > princeOne
+        }
+    }
+    
+    private func priceAscending() {
+        // Price: L -> H
+        products.sort {
+            guard let priceZero = $0.price,
+                  let priceOne = $1.price
+            else { return false }
+            return priceZero < priceOne
+        }
+    }
+    
+    private func timeDescending() {
+        // Start-selling Time: new -> old
+        products.sort {
+            guard let timeZero = $0.sellingStartDateTime,
+                  let timeOne = $1.sellingStartDateTime
+            else { return false }
+            return timeZero > timeOne
+        }
+    }
+    
+    private func timeAscending() {
+        // Start-selling Time: old -> new
+        products.sort {
+            guard let timeZero = $0.sellingStartDateTime,
+                  let timeOne = $1.sellingStartDateTime
+            else { return false }
+            return timeZero < timeOne
         }
     }
     
@@ -55,44 +106,31 @@ class ProductViewController: UIViewController {
     @IBAction func segmentedControlDidTap(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
-        
-        case 0:
-            // Price: H -> L
-            break
-            
-        case 1:
-            // Price: L -> H
-            break
-            
-        case 2:
-            // Start-selling Time: new -> old
-            break
-            
-        case 3:
-            // Start-selling Time: old -> new
-            break
-            
-        default:
-            break
+
+        case 0: priceDescending()
+
+        case 1: priceAscending()
+
+        case 2: timeDescending()
+
+        case 3: timeAscending()
+
+        default: break
         }
+        
+        reloadData()
     }
     
     // To filter items
     @IBAction func isSoldOutSwitchDidTap(_ sender: UISwitch) {
-        if sender.isOn {
-            // Show sold-out items
-        } else {
-            // Turn off the filter
-        }
+        isSoldOut = sender.isOn
+        handleFilters()
     }
     
     // To filter items
     @IBAction func isComingSoonSwitchDidTap(_ sender: UISwitch) {
-        if sender.isOn {
-            // Show coming-soon items
-        } else {
-            // Turn off the filter
-        }
+        isComingSoon = sender.isOn
+        handleFilters()
     }
 }
 
@@ -101,14 +139,16 @@ class ProductViewController: UIViewController {
 extension ProductViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        let isFiltered = isSoldOut == true || isComingSoon == true
+        return isFiltered ? filteredProducts.count : products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.reuseId, for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
         
-        let product = products[indexPath.row]
+        let isFiltered = isSoldOut == true || isComingSoon == true
+        let product = isFiltered ? filteredProducts[indexPath.row] : products[indexPath.row]
         cell.setup(with: product)
         
         return cell

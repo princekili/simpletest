@@ -50,7 +50,7 @@ class ProductTableViewCell: UITableViewCell {
         let string = NSString(string: timeStamp)
         let timeStamp: TimeInterval = string.doubleValue
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy年 MM月 dd日"
+        dateFormatter.dateFormat = "yyyy年 MM月 dd日 HH:MM:SS"
         let date = Date(timeIntervalSince1970: timeStamp)
         return dateFormatter.string(from: date)
     }

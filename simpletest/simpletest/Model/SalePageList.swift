@@ -49,6 +49,6 @@ struct SalePageListItem: Codable {
         
         case salePageID = "salePageId"
         
-        case title, price, suggestPrice
+        case title, price, suggestPrice, sellingQty, sellingStartDateTime, isSoldOut, isComingSoon
     }
 }

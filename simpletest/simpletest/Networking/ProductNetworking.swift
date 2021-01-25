@@ -158,44 +158,4 @@ final class ProductNetworking {
             completion(self.products)
         }
     }
-    
-    // MARK: - set up Product Info
-    
-//    private func setupProductInfoForPartOne(with productId: Int) {
-//        getProductInfoForPartOne(with: productId) { [weak self] (salePageList) in
-//
-//            for item in salePageList {
-//
-//                let product = Product(title: item.title,
-//                                      salePageId: item.salePageID,
-//                                      price: item.price,
-//                                      suggestPrice: item.suggestPrice,
-//                                      sellingQty: nil,
-//                                      sellingStartDateTime: nil,
-//                                      isSoldOut: nil,
-//                                      isComingSoon: nil)
-//
-//                self?.products.append(product)
-//            }
-//        }
-//    }
-    
-//    private func setupProductInfoForPartTwo(with productId: Int) {
-//        getProductInfoPartTwo(with: productId) { [weak self] (salePageList) in
-//
-//            for item in salePageList {
-//                self?.group.enter()
-//
-//                guard let filteredProducts = self?.products.filter({ $0.salePageId == item.salePageID }) else { return }
-//                var product = filteredProducts[0]
-//                product.sellingQty = item.sellingQty
-//                product.sellingStartDateTime = item.sellingStartDateTime
-//                product.isSoldOut = item.isSoldOut
-//                product.isComingSoon = item.isComingSoon
-//
-//                self?.productsToDisplay.append(product)
-//                self?.group.leave()
-//            }
-//        }
-//    }
 }
