@@ -63,10 +63,10 @@ class ProductViewController: UIViewController {
     private func priceDescending() {
         // Price: H -> L
         products.sort {
-            guard let princeZero = $0.price,
-                  let princeOne = $1.price
+            guard let priceZero = $0.price,
+                  let priceOne = $1.price
             else { return false }
-            return princeZero > princeOne
+            return priceZero > priceOne
         }
     }
     
