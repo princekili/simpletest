@@ -22,6 +22,7 @@
 		EBBB5B2A25F5376300BB2D6D /* STProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB5B2925F5376300BB2D6D /* STProductViewController.m */; };
 		EBE6FCE625F1FB3E007DA3AC /* STProductDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE6FCE525F1FB3E007DA3AC /* STProductDataObject.m */; };
 		EBE6FD0525F3B844007DA3AC /* STProductNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE6FD0425F3B844007DA3AC /* STProductNetworking.m */; };
+		EBFA2A2E25F5496100AA00D6 /* STProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFA2A2D25F5496100AA00D6 /* STProductTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		EBE6FCEA25F1FB85007DA3AC /* STProductDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STProductDataObject.h; sourceTree = "<group>"; };
 		EBE6FD0325F3B822007DA3AC /* STProductNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STProductNetworking.h; sourceTree = "<group>"; };
 		EBE6FD0425F3B844007DA3AC /* STProductNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STProductNetworking.m; sourceTree = "<group>"; };
+		EBFA2A2C25F5494E00AA00D6 /* STProductTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STProductTableViewCell.h; sourceTree = "<group>"; };
+		EBFA2A2D25F5496100AA00D6 /* STProductTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STProductTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				A37D9BE825BAC36200DF9AD4 /* ProductTableViewCell.swift */,
+				EBFA2A2C25F5494E00AA00D6 /* STProductTableViewCell.h */,
+				EBFA2A2D25F5496100AA00D6 /* STProductTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				A37D9BE925BAC36200DF9AD4 /* ProductTableViewCell.swift in Sources */,
 				6CFCACD025B1D4BF00080A64 /* SceneDelegate.swift in Sources */,
 				A3CD644925BC0B7100377843 /* ProductNetworking.swift in Sources */,
+				EBFA2A2E25F5496100AA00D6 /* STProductTableViewCell.m in Sources */,
 				A37D9BE025BAC1CE00DF9AD4 /* CategoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

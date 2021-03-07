@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--ProductViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="ProductViewController" customClass="ProductViewController" customModule="simpletest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="ProductViewController" customClass="STProductViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,44 +32,35 @@
                                                 <segment title="時間 新→舊"/>
                                                 <segment title="時間 舊→新"/>
                                             </segments>
-                                            <connections>
-                                                <action selector="segmentedControlDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="uTm-Gr-fPE"/>
-                                            </connections>
                                         </segmentedControl>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="7EL-BF-0eu">
                                             <rect key="frame" x="53.5" y="58" width="307.5" height="31"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-PX-smJ">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-PX-smJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="118.5" height="31"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已售完" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c49-TH-LCz">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="已售完" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c49-TH-LCz">
                                                             <rect key="frame" x="0.0" y="0.0" width="61.5" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pfV-Wo-3iL">
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pfV-Wo-3iL">
                                                             <rect key="frame" x="69.5" y="0.0" width="51" height="31"/>
-                                                            <connections>
-                                                                <action selector="isSoldOutSwitchDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Ze-Lq-eV1"/>
-                                                            </connections>
                                                         </switch>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fdh-LD-ppc">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fdh-LD-ppc">
                                                     <rect key="frame" x="168.5" y="0.0" width="139" height="31"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="即將開賣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPL-kK-Kbs">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="即將開賣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPL-kK-Kbs">
                                                             <rect key="frame" x="0.0" y="0.0" width="82" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-2O-8rw">
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-2O-8rw">
                                                             <rect key="frame" x="90" y="0.0" width="51" height="31"/>
-                                                            <connections>
-                                                                <action selector="isComingSoonSwitchDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="xpV-Cy-ti9"/>
-                                                            </connections>
                                                         </switch>
                                                     </subviews>
                                                 </stackView>
@@ -205,13 +196,6 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="jXu-6k-RBp" secondAttribute="bottom" id="MxL-6l-Yyk"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="priceLabel" destination="aRb-hc-bOd" id="uVk-pD-lTe"/>
-                                            <outlet property="sellingQtyLabel" destination="4uV-p2-7GF" id="5eq-5u-HHC"/>
-                                            <outlet property="sellingStartDateTimeLabel" destination="prU-GV-OKK" id="x0X-PB-BVI"/>
-                                            <outlet property="suggestPriceLabel" destination="TD0-vt-9o1" id="W53-Ag-zeC"/>
-                                            <outlet property="titleLabel" destination="1iB-UN-Hzi" id="UNm-8N-r77"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -227,8 +211,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="排序" id="Zus-R1-xaI" userLabel="ProductViewController"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="cCj-O6-KTo" id="JgS-MD-CKa"/>
-                        <outlet property="tableView" destination="Zgn-mV-RtY" id="sV3-q8-Tba"/>
+                        <outlet property="activityIndicator" destination="cCj-O6-KTo" id="WWV-T1-W0z"/>
+                        <outlet property="tableView" destination="Zgn-mV-RtY" id="2my-te-2LC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
