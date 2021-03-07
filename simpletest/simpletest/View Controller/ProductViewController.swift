@@ -32,74 +32,6 @@ class ProductViewController: UIViewController {
         fetchProducts()
     }
     
-    // MARK: -
-    
-    private func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-    
-    private func reloadData() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.activityIndicator.stopAnimating()
-        }
-    }
-    
-    private func fetchProducts() {
-        activityIndicator.startAnimating()
-
-        ProductNetworking().getProducts { [weak self] (products) in
-            self?.products = products
-            self?.reloadData()
-        }
-    }
-    
-    private func handleFilters() {
-        filteredProducts = products.filter { $0.isSoldOut == isSoldOut && $0.isComingSoon == isComingSoon }
-        reloadData()
-    }
-    
-    private func priceDescending() {
-        // Price: H -> L
-        products.sort {
-            guard let priceZero = $0.price,
-                  let priceOne = $1.price
-            else { return false }
-            return priceZero > priceOne
-        }
-    }
-    
-    private func priceAscending() {
-        // Price: L -> H
-        products.sort {
-            guard let priceZero = $0.price,
-                  let priceOne = $1.price
-            else { return false }
-            return priceZero < priceOne
-        }
-    }
-    
-    private func timeDescending() {
-        // Start-selling Time: new -> old
-        products.sort {
-            guard let timeZero = $0.sellingStartDateTime,
-                  let timeOne = $1.sellingStartDateTime
-            else { return false }
-            return timeZero > timeOne
-        }
-    }
-    
-    private func timeAscending() {
-        // Start-selling Time: old -> new
-        products.sort {
-            guard let timeZero = $0.sellingStartDateTime,
-                  let timeOne = $1.sellingStartDateTime
-            else { return false }
-            return timeZero < timeOne
-        }
-    }
-    
     // MARK: - @IBAction
     
     // To sort items
@@ -131,6 +63,75 @@ class ProductViewController: UIViewController {
     @IBAction func isComingSoonSwitchDidTap(_ sender: UISwitch) {
         isComingSoon = sender.isOn
         handleFilters()
+    }
+}
+
+private extension ProductViewController {
+    
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func fetchProducts() {
+        activityIndicator.startAnimating()
+
+        ProductNetworking().getProducts { [weak self] (products) in
+            self?.products = products
+            self?.reloadData()
+        }
+    }
+    
+    func handleFilters() {
+        filteredProducts = products.filter { $0.isSoldOut == isSoldOut && $0.isComingSoon == isComingSoon }
+        reloadData()
+    }
+    
+    func priceDescending() {
+        // Price: H -> L
+        products.sort {
+            guard let priceZero = $0.price,
+                  let priceOne = $1.price
+            else { return false }
+            return priceZero > priceOne
+        }
+    }
+    
+    func priceAscending() {
+        // Price: L -> H
+        products.sort {
+            guard let priceZero = $0.price,
+                  let priceOne = $1.price
+            else { return false }
+            return priceZero < priceOne
+        }
+    }
+    
+    func timeDescending() {
+        // Start-selling Time: new -> old
+        products.sort {
+            guard let timeZero = $0.sellingStartDateTime,
+                  let timeOne = $1.sellingStartDateTime
+            else { return false }
+            return timeZero > timeOne
+        }
+    }
+    
+    func timeAscending() {
+        // Start-selling Time: old -> new
+        products.sort {
+            guard let timeZero = $0.sellingStartDateTime,
+                  let timeOne = $1.sellingStartDateTime
+            else { return false }
+            return timeZero < timeOne
+        }
     }
 }
 
