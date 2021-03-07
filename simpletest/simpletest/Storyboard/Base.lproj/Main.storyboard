@@ -32,6 +32,9 @@
                                                 <segment title="時間 新→舊"/>
                                                 <segment title="時間 舊→新"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="segmentedControlDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="XW5-2M-hm6"/>
+                                            </connections>
                                         </segmentedControl>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="7EL-BF-0eu">
                                             <rect key="frame" x="53.5" y="58" width="307.5" height="31"/>
@@ -47,6 +50,9 @@
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pfV-Wo-3iL">
                                                             <rect key="frame" x="69.5" y="0.0" width="51" height="31"/>
+                                                            <connections>
+                                                                <action selector="isSoldOutSwitchDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="6k0-2E-M4p"/>
+                                                            </connections>
                                                         </switch>
                                                     </subviews>
                                                 </stackView>
@@ -61,6 +67,9 @@
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-2O-8rw">
                                                             <rect key="frame" x="90" y="0.0" width="51" height="31"/>
+                                                            <connections>
+                                                                <action selector="isComingSoonSwitchDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="Crx-Bd-ATJ"/>
+                                                            </connections>
                                                         </switch>
                                                     </subviews>
                                                 </stackView>
@@ -85,7 +94,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductTableViewCell" rowHeight="150" id="uND-iM-kx1" customClass="ProductTableViewCell" customModule="simpletest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductTableViewCell" rowHeight="150" id="uND-iM-kx1" customClass="STProductTableViewCell">
                                         <rect key="frame" x="0.0" y="128" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uND-iM-kx1" id="CH4-Lf-mH4">
@@ -196,6 +205,13 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="jXu-6k-RBp" secondAttribute="bottom" id="MxL-6l-Yyk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="priceLabel" destination="aRb-hc-bOd" id="dTa-5f-Yzg"/>
+                                            <outlet property="sellingQtyLabel" destination="4uV-p2-7GF" id="dDa-mR-hBC"/>
+                                            <outlet property="sellingStartDateTimeLabel" destination="prU-GV-OKK" id="I5k-lL-42U"/>
+                                            <outlet property="suggestPriceLabel" destination="TD0-vt-9o1" id="tXy-b0-Wna"/>
+                                            <outlet property="titleLabel" destination="1iB-UN-Hzi" id="2Ur-nB-RIn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
