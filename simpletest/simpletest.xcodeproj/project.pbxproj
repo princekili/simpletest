@@ -19,7 +19,9 @@
 		A37D9BF125BAC41100DF9AD4 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D9BF025BAC41100DF9AD4 /* ProductViewController.swift */; };
 		A3CD643625BC004A00377843 /* SalePageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD643525BC004900377843 /* SalePageList.swift */; };
 		A3CD644925BC0B7100377843 /* ProductNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD644825BC0B7000377843 /* ProductNetworking.swift */; };
-		EBE6FCE625F1FB3E007DA3AC /* CategoryListDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE6FCE525F1FB3E007DA3AC /* CategoryListDataObject.m */; };
+		EBBB5B2A25F5376300BB2D6D /* STProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB5B2925F5376300BB2D6D /* STProductViewController.m */; };
+		EBE6FCE625F1FB3E007DA3AC /* STProductDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE6FCE525F1FB3E007DA3AC /* STProductDataObject.m */; };
+		EBE6FD0525F3B844007DA3AC /* STProductNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE6FD0425F3B844007DA3AC /* STProductNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +60,13 @@
 		A37D9BF025BAC41100DF9AD4 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		A3CD643525BC004900377843 /* SalePageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalePageList.swift; sourceTree = "<group>"; };
 		A3CD644825BC0B7000377843 /* ProductNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNetworking.swift; sourceTree = "<group>"; };
+		EBBB5B2925F5376300BB2D6D /* STProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STProductViewController.m; sourceTree = "<group>"; };
+		EBBB5B2E25F5377B00BB2D6D /* STProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STProductViewController.h; sourceTree = "<group>"; };
 		EBE6FCE425F1FB3D007DA3AC /* simpletest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "simpletest-Bridging-Header.h"; sourceTree = "<group>"; };
-		EBE6FCE525F1FB3E007DA3AC /* CategoryListDataObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryListDataObject.m; sourceTree = "<group>"; };
-		EBE6FCEA25F1FB85007DA3AC /* CategoryListDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryListDataObject.h; sourceTree = "<group>"; };
+		EBE6FCE525F1FB3E007DA3AC /* STProductDataObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STProductDataObject.m; sourceTree = "<group>"; };
+		EBE6FCEA25F1FB85007DA3AC /* STProductDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STProductDataObject.h; sourceTree = "<group>"; };
+		EBE6FD0325F3B822007DA3AC /* STProductNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STProductNetworking.h; sourceTree = "<group>"; };
+		EBE6FD0425F3B844007DA3AC /* STProductNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STProductNetworking.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +120,7 @@
 				A37D9BE625BAC2DE00DF9AD4 /* Networking */,
 				A37D9BDE25BAC1B700DF9AD4 /* Model */,
 				A37D9BE425BAC2BD00DF9AD4 /* View */,
-				A37D9BE525BAC2C600DF9AD4 /* Controller */,
+				A37D9BE525BAC2C600DF9AD4 /* View Controller */,
 				A37D9BE725BAC2F900DF9AD4 /* Storyboard */,
 				6CFCACCD25B1D4BF00080A64 /* AppDelegate.swift */,
 				6CFCACCF25B1D4BF00080A64 /* SceneDelegate.swift */,
@@ -148,8 +154,8 @@
 			children = (
 				A37D9BDF25BAC1CE00DF9AD4 /* CategoryList.swift */,
 				A3CD643525BC004900377843 /* SalePageList.swift */,
-				EBE6FCE525F1FB3E007DA3AC /* CategoryListDataObject.m */,
-				EBE6FCEA25F1FB85007DA3AC /* CategoryListDataObject.h */,
+				EBE6FCE525F1FB3E007DA3AC /* STProductDataObject.m */,
+				EBE6FCEA25F1FB85007DA3AC /* STProductDataObject.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,18 +168,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A37D9BE525BAC2C600DF9AD4 /* Controller */ = {
+		A37D9BE525BAC2C600DF9AD4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				A37D9BF025BAC41100DF9AD4 /* ProductViewController.swift */,
+				EBBB5B2925F5376300BB2D6D /* STProductViewController.m */,
+				EBBB5B2E25F5377B00BB2D6D /* STProductViewController.h */,
 			);
-			path = Controller;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		A37D9BE625BAC2DE00DF9AD4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				A3CD644825BC0B7000377843 /* ProductNetworking.swift */,
+				EBE6FD0325F3B822007DA3AC /* STProductNetworking.h */,
+				EBE6FD0425F3B844007DA3AC /* STProductNetworking.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -321,7 +331,9 @@
 				A37D9BF125BAC41100DF9AD4 /* ProductViewController.swift in Sources */,
 				A3CD643625BC004A00377843 /* SalePageList.swift in Sources */,
 				6CFCACCE25B1D4BF00080A64 /* AppDelegate.swift in Sources */,
-				EBE6FCE625F1FB3E007DA3AC /* CategoryListDataObject.m in Sources */,
+				EBBB5B2A25F5376300BB2D6D /* STProductViewController.m in Sources */,
+				EBE6FCE625F1FB3E007DA3AC /* STProductDataObject.m in Sources */,
+				EBE6FD0525F3B844007DA3AC /* STProductNetworking.m in Sources */,
 				A37D9BE925BAC36200DF9AD4 /* ProductTableViewCell.swift in Sources */,
 				6CFCACD025B1D4BF00080A64 /* SceneDelegate.swift in Sources */,
 				A3CD644925BC0B7100377843 /* ProductNetworking.swift in Sources */,
