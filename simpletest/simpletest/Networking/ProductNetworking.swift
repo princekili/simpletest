@@ -15,9 +15,25 @@ final class ProductNetworking {
     
     var products: [SalePageListItem] = []
     
-    // MARK: - get Product Info
+    // MARK: for ProductViewController
     
-    private func getCategoryIds() {
+    func getProducts(completion: @escaping ([SalePageListItem]) -> Void) {
+        getCategoryIds()
+        group.wait()
+        getProductInfoPartOne()
+        group.wait()
+        getProductInfoPartTwo()
+        group.notify(queue: .global(qos: .userInteractive)) {
+            completion(self.products)
+        }
+    }
+}
+
+private extension ProductNetworking {
+    
+    // MARK: get Product Info
+    
+    func getCategoryIds() {
         
         guard let url = URL(string: "https://blooming-oasis-01056.herokuapp.com/category") else {
             print("------ Error -> Invalid URL ------")
@@ -57,7 +73,7 @@ final class ProductNetworking {
         task.resume()
     }
     
-    private func getProductInfoPartOne() {
+    func getProductInfoPartOne() {
         
         for id in categoryIds {
             guard let url = URL(string: "https://blooming-oasis-01056.herokuapp.com/product?id=\(id)") else {
@@ -99,7 +115,7 @@ final class ProductNetworking {
         }
     }
     
-    private func getProductInfoPartTwo() {
+    func getProductInfoPartTwo() {
         
         for id in categoryIds {
             guard let url = URL(string: "https://blooming-oasis-01056.herokuapp.com/sale?id=\(id)") else {
@@ -143,19 +159,6 @@ final class ProductNetworking {
             }
             
             task.resume()
-        }
-    }
-    
-    // MARK: - for ProductViewController
-    
-    func getProducts(completion: @escaping ([SalePageListItem]) -> Void) {
-        getCategoryIds()
-        group.wait()
-        getProductInfoPartOne()
-        group.wait()
-        getProductInfoPartTwo()
-        group.notify(queue: .global(qos: .userInteractive)) {
-            completion(self.products)
         }
     }
 }
