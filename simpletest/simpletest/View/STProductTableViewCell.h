@@ -13,7 +13,7 @@
 
 - (void)setup:(STProductDataObject *) product;
 
-@property (nonatomic, strong) STProductDataObject *prodcut;
+//@property (nonatomic, strong) STProductDataObject *prodcut;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
